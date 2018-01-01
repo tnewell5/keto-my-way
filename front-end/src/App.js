@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'semantic-ui-react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -7,12 +8,15 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Keto My Way</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="App-intro">
+          <div>Today</div>
+          <div>Used:</div>
+          <div>Remaining:</div>
+          <div>Meals</div>
+          <Button className="ui teal">Add Meal</Button>
+        </div>
       </div>
     );
   }
