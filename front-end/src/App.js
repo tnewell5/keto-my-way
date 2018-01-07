@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
 import { Header, Grid, Segment, Button } from 'semantic-ui-react'
+import axios from 'axios'
+
 import './App.css'
 import Meal from './Meal'
-
-const meals = [
-  { name: 'mini babybel cheese - original', amount: '1 piece', fat: '6g', protein: '5g', netCarbs: '0g' },
-  { name: 'mini babybel cheese - light', amount: '1 piece', fat: '3g', protein: '6g', netCarbs: '0g' },
-]
 
 class App extends Component {
   constructor(props) {
@@ -18,7 +15,14 @@ class App extends Component {
   }
 
   showMeals() {
-    this.setState({ meals: meals })
+    axios.get('http://localhost:4000/meals')
+    .then((response) => {
+      console.log('response: ', response)
+      this.setState({ meals: response.data })
+    })
+    .catch((error) => {
+      console.log(error)
+    })
   }
 
   render() {
